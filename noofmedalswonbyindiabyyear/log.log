@@ -1,0 +1,42 @@
+hive> select country,year,sum(goldmedals+silvermedals+bronzemedals) from olympic where country = 'India' group by year,country;
+Query ID = acadgild_20170401223131_5bb4b2c7-228f-45d3-9885-832e4a9b1223
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks not specified. Estimated from input data size: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1491017400247_0011, Tracking URL = http://localhost:8088/proxy/application_1491017400247_0011/
+Kill Command = /home/acadgild/hadoop-2.6.0/bin/hadoop job  -kill job_1491017400247_0011
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
+2017-04-01 22:35:08,458 Stage-1 map = 0%,  reduce = 0%
+2017-04-01 22:36:09,214 Stage-1 map = 0%,  reduce = 0%
+2017-04-01 22:37:10,147 Stage-1 map = 0%,  reduce = 0%
+2017-04-01 22:38:20,477 Stage-1 map = 0%,  reduce = 0%
+2017-04-01 22:39:23,069 Stage-1 map = 0%,  reduce = 0%, Cumulative CPU 7.38 sec
+2017-04-01 22:40:20,125 Stage-1 map = 67%,  reduce = 0%, Cumulative CPU 21.04 sec
+2017-04-01 22:40:23,084 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 22.01 sec
+2017-04-01 22:41:26,791 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 22.01 sec
+2017-04-01 22:42:27,600 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 22.01 sec
+2017-04-01 22:43:31,133 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 22.01 sec
+2017-04-01 22:44:31,164 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 22.01 sec
+2017-04-01 22:45:31,459 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 22.01 sec
+2017-04-01 22:46:31,680 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 22.01 sec
+2017-04-01 22:47:32,377 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 22.01 sec
+2017-04-01 22:47:33,818 Stage-1 map = 100%,  reduce = 67%, Cumulative CPU 25.2 sec
+2017-04-01 22:47:57,880 Stage-1 map = 100%,  reduce = 83%, Cumulative CPU 34.3 sec
+2017-04-01 22:48:04,610 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 37.48 sec
+MapReduce Total cumulative CPU time: 37 seconds 480 msec
+Ended Job = job_1491017400247_0011
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 38.23 sec   HDFS Read: 518899 HDFS Write: 60 SUCCESS
+Total MapReduce CPU Time Spent: 38 seconds 230 msec
+OK
+India	2000	1.0
+India	2004	1.0
+India	2008	3.0
+India	2012	6.0
+Time taken: 988.491 seconds, Fetched: 4 row(s)
