@@ -1,0 +1,141 @@
+hive> select country,sum(totalmedals) from olympic group by country;
+Query ID = acadgild_20170401225858_07fcc878-ac8e-4779-b6e0-9222390d8fc1
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks not specified. Estimated from input data size: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1491017400247_0012, Tracking URL = http://localhost:8088/proxy/application_1491017400247_0012/
+Kill Command = /home/acadgild/hadoop-2.6.0/bin/hadoop job  -kill job_1491017400247_0012
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
+2017-04-01 23:02:50,094 Stage-1 map = 0%,  reduce = 0%
+2017-04-01 23:03:50,380 Stage-1 map = 0%,  reduce = 0%
+2017-04-01 23:04:50,763 Stage-1 map = 0%,  reduce = 0%
+2017-04-01 23:05:51,210 Stage-1 map = 0%,  reduce = 0%
+2017-04-01 23:06:08,838 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 14.11 sec
+2017-04-01 23:07:09,491 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 14.11 sec
+2017-04-01 23:08:09,675 Stage-1 map = 100%,  reduce = 67%, Cumulative CPU 18.29 sec
+2017-04-01 23:08:22,172 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 26.11 sec
+MapReduce Total cumulative CPU time: 26 seconds 110 msec
+Ended Job = job_1491017400247_0012
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 26.64 sec   HDFS Read: 518899 HDFS Write: 1541 SUCCESS
+Total MapReduce CPU Time Spent: 26 seconds 640 msec
+OK
+NULL	NULL
+Afghanistan	2.0
+Algeria	8.0
+Argentina	139.0
+Armenia	10.0
+Australia	601.0
+Austria	91.0
+Azerbaijan	25.0
+Bahamas	24.0
+Bahrain	1.0
+Barbados	1.0
+Belarus	97.0
+Belgium	18.0
+Botswana	1.0
+Brazil	221.0
+Bulgaria	41.0
+Cameroon	17.0
+Canada	369.0
+Chile	22.0
+China	530.0
+Chinese Taipei	20.0
+Colombia	13.0
+Costa Rica	2.0
+Croatia	81.0
+Cuba	188.0
+Cyprus	1.0
+Czech Republic	81.0
+Denmark	89.0
+Dominican Republic	5.0
+Ecuador	1.0
+Egypt	8.0
+Eritrea	1.0
+Estonia	18.0
+Ethiopia	29.0
+Finland	118.0
+France	317.0
+Gabon	1.0
+Georgia	21.0
+Germany	629.0
+Great Britain	322.0
+Greece	59.0
+Grenada	1.0
+Guatemala	1.0
+Hong Kong	3.0
+Hungary	145.0
+Iceland	15.0
+India	11.0
+Indonesia	22.0
+Iran	24.0
+Ireland	7.0
+Israel	3.0
+Italy	329.0
+Jamaica	80.0
+Japan	282.0
+Kazakhstan	42.0
+Kenya	39.0
+Kuwait	2.0
+Kyrgyzstan	3.0
+Latvia	17.0
+Lithuania	30.0
+Macedonia	1.0
+Malaysia	3.0
+Mauritius	1.0
+Mexico	38.0
+Moldova	5.0
+Mongolia	10.0
+Montenegro	14.0
+Morocco	11.0
+Mozambique	1.0
+Netherlands	318.0
+New Zealand	52.0
+Nigeria	39.0
+North Korea	21.0
+Norway	192.0
+Panama	1.0
+Paraguay	17.0
+Poland	80.0
+Portugal	9.0
+Puerto Rico	2.0
+Qatar	3.0
+Romania	123.0
+Russia	768.0
+Saudi Arabia	5.0
+Serbia	31.0
+Serbia and Montenegro	38.0
+Singapore	7.0
+Slovakia	35.0
+Slovenia	25.0
+South Africa	25.0
+South Korea	308.0
+Spain	204.0
+Sri Lanka	1.0
+Sudan	1.0
+Sweden	180.0
+Switzerland	93.0
+Syria	1.0
+Tajikistan	3.0
+Thailand	18.0
+Togo	1.0
+Trinidad and Tobago	19.0
+Tunisia	4.0
+Turkey	28.0
+Uganda	1.0
+Ukraine	141.0
+United Arab Emirates	1.0
+United States	1301.0
+Uruguay	1.0
+Uzbekistan	19.0
+Venezuela	4.0
+Vietnam	2.0
+Zimbabwe	7.0
+Time taken: 616.217 seconds, Fetched: 111 row(s)
+
