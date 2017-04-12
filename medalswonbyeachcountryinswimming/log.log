@@ -1,0 +1,101 @@
+[acadgild@localhost ~]$ hive
+
+Logging initialized using configuration in jar:file:/usr/local/hive/lib/hive-common-0.14.0.jar!/hive-log4j.properties
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/usr/local/hive/lib/hive-jdbc-0.14.0-standalone.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/local/hadoop-2.6.0/share/hadoop/common/lib/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+hive> show databases;
+OK
+b1
+custom
+default
+test
+Time taken: 6.151 seconds, Fetched: 4 row(s)
+hive> use custom;
+OK
+Time taken: 0.342 seconds
+hive> show tables;
+OK
+temp
+temperature_data
+temperature_data_vw
+Time taken: 0.294 seconds, Fetched: 3 row(s)
+hive> create table olympic 
+    > (athlete string,age int,country string,year int,closingdate date,sport string,goldmedals int,silvermedals int,bronzemedals int, totalmedals int)
+    > row format serde 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
+    > with serdeproperties (
+    > "separatorChar"="\t","quoteChar" = "'","escapeChar" ="\\"
+    > ) stored as textfile;
+OK
+Time taken: 3.141 seconds
+hive> load data local inpath '/home/acadgild/Downloads/olympix_data.csv' into table olympic;
+Loading data to table custom.olympic
+Table custom.olympic stats: [numFiles=1, totalSize=518669]
+OK
+Time taken: 10.792 seconds
+hive> select country,sum(goldmedals+silvermedals+bronzemedals) from olympic where sport = 'Swimming' group by country;
+Query ID = acadgild_20170401221414_bb677680-dd75-4f54-807a-004b15ab5e81
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks not specified. Estimated from input data size: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1491017400247_0010, Tracking URL = http://localhost:8088/proxy/application_1491017400247_0010/
+Kill Command = /home/acadgild/hadoop-2.6.0/bin/hadoop job  -kill job_1491017400247_0010
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
+2017-04-01 22:17:20,263 Stage-1 map = 0%,  reduce = 0%
+2017-04-01 22:18:20,965 Stage-1 map = 0%,  reduce = 0%
+2017-04-01 22:19:22,141 Stage-1 map = 0%,  reduce = 0%
+2017-04-01 22:20:23,472 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 16.6 sec
+2017-04-01 22:21:24,744 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 16.6 sec
+2017-04-01 22:22:25,487 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 16.6 sec
+2017-04-01 22:23:26,715 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 19.47 sec
+2017-04-01 22:23:31,361 Stage-1 map = 100%,  reduce = 67%, Cumulative CPU 20.57 sec
+2017-04-01 22:24:11,200 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 29.66 sec
+MapReduce Total cumulative CPU time: 29 seconds 660 msec
+Ended Job = job_1491017400247_0010
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 32.24 sec   HDFS Read: 518899 HDFS Write: 454 SUCCESS
+Total MapReduce CPU Time Spent: 32 seconds 240 msec
+OK
+Argentina	1.0
+Australia	158.0
+Austria	3.0
+Belarus	2.0
+Brazil	8.0
+Canada	5.0
+China	35.0
+Costa Rica	2.0
+Croatia	1.0
+Denmark	1.0
+France	39.0
+Germany	32.0
+Great Britain	11.0
+Hungary	9.0
+Italy	16.0
+Japan	43.0
+Lithuania	1.0
+Netherlands	46.0
+Norway	2.0
+Poland	3.0
+Romania	6.0
+Russia	20.0
+Serbia	1.0
+Slovakia	2.0
+Slovenia	1.0
+South Africa	11.0
+South Korea	4.0
+Spain	3.0
+Sweden	9.0
+Trinidad and Tobago	1.0
+Tunisia	3.0
+Ukraine	7.0
+United States	267.0
+Zimbabwe	7.0
+Time taken: 565.501 seconds, Fetched: 34 row(s)
